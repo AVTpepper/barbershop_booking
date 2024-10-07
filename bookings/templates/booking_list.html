@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Booking List</h2>
+    <a class="btn btn-primary mb-2" href="{% url 'book_appointment' %}">Book Appointment</a>
+    <ul class="list-group">
+      {% for booking in bookings %}
+        <li class="list-group-item">
+          {{ booking.customer_name }} - {{ booking.barber }} - {{ booking.service }} - {{ booking.date }} {{ booking.time }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
