@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Booking Calendar</h2>
+    <div class="calendar mt-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for week in calendar %}
+            <tr>
+              {% for day in week %}
+                <td>
+                  <div class="day">
+                    <strong>{{ day.day }}</strong>
+                    {% for booking in day.bookings %}
+                      <div class="booking">
+                        {{ booking.customer_name }} - {{ booking.service.name }} at {{ booking.time }}
+                      </div>
+                    {% endfor %}
+                  </div>
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

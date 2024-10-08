@@ -1,8 +1,7 @@
-import json
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from .forms import BookingForm
+from django.shortcuts import render
 from .models import Booking
+import calendar
+from datetime import date, timedelta
 
 def booking_list(request):
     bookings = Booking.objects.all()
@@ -19,11 +18,15 @@ def book_appointment(request):
     return render(request, 'bookings/book_appointment.html', {'form': form})
 
 def booking_calendar(request):
-    bookings = Booking.objects.all()
-    events = [
-        {
-            'title': f"{booking.customer_name} - {booking.service.name}",
-            'start': f"{booking.date}T{booking.time}",
-        } for booking in bookings
-    ]
-    return render(request, 'bookings/booking_calendar.html', {'events': json.dumps(events)})
+    today = date.today()
+    month_calendar = calendar.Calendar().monthdatescalendar(today.year, today.month)
+    calendar_data = []
+
+    for week in month_calendar:
+        week_data = []
+        for day in week:
+            day_bookings = Booking.objects.filter(date=day)
+            week_data.append({'day': day, 'bookings': day_bookings})
+        calendar_data.append(week_data)
+
+    return render(request, 'bookings/booking_calendar.html', {'calendar': calendar_data})
