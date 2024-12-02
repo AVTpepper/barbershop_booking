@@ -8,6 +8,7 @@
       {% for booking in bookings %}
         <li class="list-group-item">
           {{ booking.customer_name }} - {{ booking.barber }} - {{ booking.service }} - {{ booking.date }} {{ booking.time }}
+          <a class="btn btn-sm btn-warning float-right" href="{% url 'update_appointment' booking.id %}">Edit</a>
         </li>
       {% endfor %}
     </ul>
