@@ -2,12 +2,14 @@ from django.shortcuts import render
 from .models import Booking
 import calendar
 from datetime import date, timedelta
+from .forms import BookingForm
 
 def booking_list(request):
     bookings = Booking.objects.all()
     return render(request, 'bookings/booking_list.html', {'bookings': bookings})
 
 def book_appointment(request):
+    from .forms import BookingForm
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
