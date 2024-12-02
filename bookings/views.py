@@ -1,23 +1,29 @@
-from django.shortcuts import render
-from .models import Booking
-import calendar
-from datetime import date, timedelta
+from django.shortcuts import render, redirect
 from .forms import BookingForm
+from .models import Booking
+from datetime import date, timedelta
+import calendar
+
 
 def booking_list(request):
     bookings = Booking.objects.all()
     return render(request, 'bookings/booking_list.html', {'bookings': bookings})
 
+
 def book_appointment(request):
-    from .forms import BookingForm
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('booking_list')
+            return redirect('booking_success')
     else:
         form = BookingForm()
     return render(request, 'bookings/book_appointment.html', {'form': form})
+
+
+def booking_success(request):
+    return render(request, 'bookings/booking_success.html')
+
 
 def booking_calendar(request):
     today = date.today()
