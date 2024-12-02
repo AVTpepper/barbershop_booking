@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BookingForm
 from .models import Booking
 from datetime import date, timedelta
@@ -19,6 +19,18 @@ def book_appointment(request):
     else:
         form = BookingForm()
     return render(request, 'bookings/book_appointment.html', {'form': form})
+
+
+def update_appointment(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('booking_success')
+    else:
+        form = BookingForm(instance=booking)
+    return render(request, 'bookings/update_appointment.html', {'form': form})
 
 
 def booking_success(request):
