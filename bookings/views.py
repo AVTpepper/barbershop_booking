@@ -33,6 +33,14 @@ def update_appointment(request, booking_id):
     return render(request, 'bookings/update_appointment.html', {'form': form})
 
 
+def delete_appointment(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('booking_list')
+    return render(request, 'bookings/delete_appointment.html', {'booking': booking})
+
+
 def booking_success(request):
     return render(request, 'bookings/booking_success.html')
 
