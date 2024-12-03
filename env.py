@@ -1,1 +1,0 @@
-DATABASE_URL='postgresql://booking_db_owner:pEro5tL6vVDX@ep-wispy-lake-a2h8lm7j.eu-central-1.aws.neon.tech/booking_db?sslmode=require'

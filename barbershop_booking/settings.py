@@ -81,6 +81,10 @@ WSGI_APPLICATION = 'barbershop_booking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Specify the absolute path to .env file
+env_path = os.path.join(BASE_DIR, '.env')
+load_dotenv(dotenv_path=env_path)
+
 load_dotenv()
 
 if getenv("USE_NEON_DB", 'false').lower() == 'true':
@@ -147,3 +151,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+print(f"USE_NEON_DB: {getenv('USE_NEON_DB')}")
