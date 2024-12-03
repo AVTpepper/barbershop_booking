@@ -1,0 +1,1 @@
+web: gunicorn barbershop_booking.wsgi
