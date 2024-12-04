@@ -58,3 +58,7 @@ def booking_calendar(request):
         calendar_data.append(week_data)
 
     return render(request, 'bookings/booking_calendar.html', {'calendar': calendar_data})
+
+
+def landing_page(request):
+    return render(request, 'landing_page.html')
