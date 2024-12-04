@@ -1,47 +1,45 @@
 {% extends 'base.html' %}
-   
+{% load static %}
    {% block content %}
-   <!-- <div class="container-fluid"> -->
-       <!-- Hero Section -->
-       <div class="jumbotron text-center mt-4">
-           <h1 class="display-4">Welcome to Our Barber Shop</h1>
-           <p class="lead">Look Your Best – Book Your Appointment Today!</p>
-           <a class="btn btn-primary btn-lg" href="{% url 'book_appointment' %}" role="button">Book Now</a>
-       </div>
+   <!-- Hero Section -->
+   <div class="jumbotron text-center mt-4 hero-section">
+        <h1 class="display-4 text-white">Welcome to Our Barber Shop</h1>
+        <p class="lead text-white">Look Your Best – Book Your Appointment Today!</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'book_appointment' %}" role="button">Book Now</a>
+    </div>
 
-       <!-- Services Section -->
-       <div class="container text-center" id="services">
-           <h2 class="mt-5">Our Services</h2>
-           <div class="row mt-4">
-               <div class="col-md-4">
-                   <div class="card mb-4">
-                       <div class="card-body">
-                           <h5 class="card-title">Haircut</h5>
-                           <p class="card-text">Professional haircut to suit your style.</p>
-                           <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <div class="card mb-4">
-                       <div class="card-body">
-                           <h5 class="card-title">Beard Trim</h5>
-                           <p class="card-text">Get the perfect beard trim.</p>
-                           <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <div class="card mb-4">
-                       <div class="card-body">
-                           <h5 class="card-title">Shave</h5>
-                           <p class="card-text">Clean shave for a fresh look.</p>
-                           <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Add three more service cards in a similar manner -->
-       </div>
-   <!-- </div> -->
+    <!-- Services Section -->
+    <div class="container text-center" id="services">
+        <h2 class="mt-5">Our Services</h2>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Haircut</h5>
+                        <p class="card-text">Professional haircut to suit your style.</p>
+                        <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Beard Trim</h5>
+                        <p class="card-text">Get the perfect beard trim.</p>
+                        <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Shave</h5>
+                        <p class="card-text">Clean shave for a fresh look.</p>
+                        <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add three more service cards in a similar manner -->
+    </div>
    {% endblock %}
