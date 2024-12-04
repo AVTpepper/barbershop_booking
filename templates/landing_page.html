@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+   
+   {% block content %}
+   <div class="container-fluid">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <a class="navbar-brand" href="#">Logo</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ml-auto">
+                   <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+               </ul>
+           </div>
+       </nav>
+
+       <!-- Hero Section -->
+       <div class="jumbotron text-center mt-4">
+           <h1 class="display-4">Welcome to Our Barber Shop</h1>
+           <p class="lead">Look Your Best – Book Your Appointment Today!</p>
+           <a class="btn btn-primary btn-lg" href="{% url 'book_appointment' %}" role="button">Book Now</a>
+       </div>
+
+       <!-- Services Section -->
+       <div class="container text-center" id="services">
+           <h2 class="mt-5">Our Services</h2>
+           <div class="row mt-4">
+               <div class="col-md-4">
+                   <div class="card mb-4">
+                       <div class="card-body">
+                           <h5 class="card-title">Haircut</h5>
+                           <p class="card-text">Professional haircut to suit your style.</p>
+                           <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4">
+                   <div class="card mb-4">
+                       <div class="card-body">
+                           <h5 class="card-title">Beard Trim</h5>
+                           <p class="card-text">Get the perfect beard trim.</p>
+                           <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4">
+                   <div class="card mb-4">
+                       <div class="card-body">
+                           <h5 class="card-title">Shave</h5>
+                           <p class="card-text">Clean shave for a fresh look.</p>
+                           <a href="{% url 'book_appointment' %}" class="btn btn-outline-primary">Select Service</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <!-- Add three more service cards in a similar manner -->
+       </div>
+   </div>
+   {% endblock %}
